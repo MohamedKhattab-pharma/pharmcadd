@@ -1,0 +1,35 @@
+Software environment for pharmacogenomics pipeline
+
+Quality Control
+
+FastQC v0.12.1
+MultiQC v1.21
+
+Trimming
+
+Trimmomatic v0.39
+
+Alignment
+
+BWA v0.7.17
+SAMtools v1.19
+
+Variant Processing
+
+GATK v4.4.0.0
+BCFtools v1.19
+VCFtools v0.1.16
+
+Annotation
+
+ANNOVAR 
+SnpEff v5.2
+
+Reference Genome Utilities
+
+Picard tools v3.1.1
+
+Environment
+
+Linux (Ubuntu recommended)
+Bash ≥ 5.0
