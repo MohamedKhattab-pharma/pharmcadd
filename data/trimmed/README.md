@@ -18,7 +18,7 @@ This directory contains aggregated quality control results generated using Multi
 
 This QC analysis is part of a pharmacogenetics workflow investigating:
 
-- :contentReference[oaicite:0]{index=0} metabolism variability
+- Metabolism variability
 - CYP450 gene region sequencing in Zimbabwean populations
 - Downstream variant calling and clinical annotation
 
