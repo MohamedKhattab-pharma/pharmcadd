@@ -51,7 +51,7 @@ This QC analysis is part of a pharmacogenetics workflow investigating:
 
 ### 4. Sequence Length Distribution
 - Two read length groups observed:
-  - 136 bp (R1/R2)
+  - 136 bp (R1/R2) = results from "trimmed basepairs with low quality"
   - 150 bp (SRR22164370 runs)
 
 ### 5. Adapter Content
@@ -80,7 +80,7 @@ This QC analysis is part of a pharmacogenetics workflow investigating:
 These sequencing reads originate from a Whole Exome Sequencing (WXS) study targeting:
 
 - CYP450 gene regions involved in drug metabolism
-- Pharmacogenetic variability affecting :contentReference[oaicite:1]{index=1} response
+- Pharmacogenetic variability affecting response
 
 ---
 
