@@ -52,5 +52,12 @@ gatk ApplyBQSR -R GRCh38.fa -I aln_sorted.markup.bam
     --filter-name "FS_filter" --filter-expression "FS > 200.00" \
     --filter-name "ReadPosRankSum" --filter-expression "ReadPosRankSum < -20.00" \
 
-    
+### Selecting SNP variants
+
+gatk SelectVariants -R GRCh38.dna.toplevel.fa.gz -V SNP_filtered.vcf --exclude-filtered -O Final_SNPS.vcf
+
+### Selecting INDELS variants
+
+gatk SelectVariants -R GRCh38.dna.toplevel.fa.gz -V INDELs_filtered.vcf --exclude-filtered -O Final_INDELs.vcf
+
     
