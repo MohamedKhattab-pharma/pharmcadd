@@ -7,12 +7,7 @@ PharmaCADD/
 │   ├── trimmed/
 │   ├── processed/
 │
-├── workflow/
-│   ├── 01_quality_control/
-│   ├── 02_trimming/
-│   ├── 03_alignment/
-│   ├── 04_variant_calling/
-│   ├── 05_annotation/
+├── workflow.md
 │
 ├── results/
 │   ├── qc_reports/
