@@ -1,60 +1,98 @@
-# PharmaCADD - In Progress
-Pharmacogenomics-Guided Optimization of Praziquantel: Variant Discovery and Target Identification in Zimbabwean Populations
+# PharmaCADD (In Progress)
+## Pharmacogenomics-Guided Optimization of Praziquantel: Variant Discovery, Functional Annotation, and Drug Target Identification in African Populations
 
-### 🧬 Project Overview
+---
 
-This project investigates the pharmacogenetic variability of Praziquantel in Zimbabwean populations by identifying genetic variants that may influence drug response and efficacy.
+# 🧬 Project Overview
 
-Using a full NGS pipeline, we:
+PharmaCADD is a **computational pharmacogenomics and drug discovery pipeline** designed to investigate how **human genetic variation influences response to Praziquantel**, a first-line anthelmintic drug used in the treatment of schistosomiasis.
 
-Process raw sequencing data
-Identify genomic variants
-Annotate clinically relevant mutations
-Map variants to pharmacogenes
-Propose potential targets for Computer-Aided Drug Design (CADD)
+This project focuses on **Zimbabwean population genomic variation**, aiming to bridge:
 
+- 🧬 Variant discovery (NGS data)
+- 🧪 Functional annotation (VEP)
+- 💊 Pharmacogenomics interpretation (PharmGKB, ClinVar)
+- 🧬 Target prioritization for drug response pathways
+- 🧪 Structural biology preparation for molecular docking (MOE-based workflow)
 
-🎯 Objectives
-Detect SNPs and indels affecting drug metabolism and response
-Annotate variants using:
-ClinVar
-pharmacogenomic databases
-Identify genes influencing praziquantel pharmacokinetics/dynamics
-Suggest novel targets to improve drug efficacy
+---
 
+# 🎯 Scientific Objectives
 
-⚙️ Pipeline Overview
+### 1. Variant Discovery
+Identify high-confidence SNPs and indels affecting genes involved in:
+- Drug metabolism
+- Transport mechanisms
+- Xenobiotic response
 
-Explain each step scientifically, not just technically:
+---
 
-1. Quality Control
+### 2. Functional Annotation
+Characterize variants using:
+- Molecular consequence (missense, synonymous, regulatory)
+- Protein-level impact
+- Population allele frequency
 
-Tool: FastQC
+---
 
-Assess read quality, GC content, duplication levels
+### 3. Pharmacogenomic Mapping
+Integrate variant data with:
+- Known drug–gene interactions
+- Pharmacokinetic/pharmacodynamic pathways
 
-2. Trimming
+---
 
-Tool: Trimmomatic
+### 4. Clinical Relevance Layer
+Overlay clinical interpretation using:
+- Disease associations (ClinVar)
+- Drug response evidence (PharmGKB)
 
-Remove adapters and low-quality bases
+---
 
-3. Alignment
+### 5. Drug Target Prioritization
+Identify high-confidence drug-response genes suitable for:
+- molecular docking
+- structural biology analysis
+- potential drug repositioning studies
 
-Tool: BWA
+---
+---
 
-Map reads to reference genome
+### 6. Molecular Docking, Pharmacophore modelling & ADME Prediction
+-In progress
 
-4. Variant Calling
+---
 
-Tool: GATK
+# 🧬 Full Pipeline Architecture
 
-Generate VCF files (SNPs + indels)
+```text
+RAW FASTQ DATA
+        ↓
+Quality Control (FastQC)
+        ↓
+Read Trimming (Trimmomatic/cutadept)
+        ↓
+Alignment to GRCh38 (BWA)
+        ↓
+Variant Calling (GATK)
+        ↓
+SNP + Indel Filtering (bcftools)
+        ↓
+Variant Normalization (bcftools norm)
+        ↓
+Functional Annotation (Ensembl VEP)
+        ↓
+Gene Extraction (CSQ parsing)
+        ↓
+Pharmacogenomic Mapping (PharmGKB)
+        ↓
+Clinical Annotation Layer (ClinVar optional)
+        ↓
+Gene Prioritization (frequency + overlap scoring)
+        ↓
+Protein Mapping (UniProt)
+        ↓
+Target Filtering (CYP / SLC / ABC / UGT)
+        ↓
+MOE-Based Molecular Docking
 
-5. Annotation
-
-Tools:
-
-ANNOVAR
-
-ClinVar
