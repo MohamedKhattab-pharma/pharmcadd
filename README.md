@@ -1,4 +1,4 @@
-# PharmaCADD (In Progress)
+# PharmaCADD (Completed)
 ## Pharmacogenomics-Guided Optimization of Praziquantel: Variant Discovery, Functional Annotation, and Drug Target Identification in African Populations
 
 ---
@@ -94,5 +94,5 @@ Protein Mapping (UniProt)
         ↓
 Target Filtering (CYP / SLC / ABC / UGT)
         ↓
- Molecular Docking (MZDock, AutodockVina, UCFChimera)
+ Molecular Docking (MZDock, AutodockVina, UCFChimeram smina)
 
