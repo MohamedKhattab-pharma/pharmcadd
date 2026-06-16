@@ -1,4 +1,4 @@
-# PharmaCADD (Completed)
+# PharmaCADD
 ## Pharmacogenomics-Guided Optimization of Praziquantel: Variant Discovery, Functional Annotation, and Drug Target Identification in African Populations
 
 ---
