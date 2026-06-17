@@ -1,0 +1,248 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##ALT=<ID=NON_REF,Description="Represents any possible alternative allele not already represented at this location by REF and ALT">
+##FILTER=<ID=FS_filter,Description="FS > 60.0">
+##FILTER=<ID=LowQual,Description="Low quality">
+##FILTER=<ID=MQRankSum_filter,Description="MQRankSum < -12.5">
+##FILTER=<ID=MQ_filter,Description="MQ < 40.0">
+##FILTER=<ID=QD_filter,Description="QD < 2.0">
+##FILTER=<ID=ReadPosRankSum_filter,Description="ReadPosRankSum < -8.0">
+##FILTER=<ID=SOR_filter,Description="SOR > 3.0">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth (reads with MQ=255 or with bad mates are filtered)">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=MIN_DP,Number=1,Type=Integer,Description="Minimum DP observed within the GVCF block">
+##FORMAT=<ID=PGT,Number=1,Type=String,Description="Physical phasing haplotype information, describing how the alternate alleles are phased in relation to one another; will always be heterozygous and is not intended to describe called alleles">
+##FORMAT=<ID=PID,Number=1,Type=String,Description="Physical phasing ID information, where each unique ID within a given sample (but not across samples) connects records within a phasing group">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="Normalized, Phred-scaled likelihoods for genotypes as defined in the VCF specification">
+##FORMAT=<ID=PS,Number=1,Type=Integer,Description="Phasing set (typically the position of the first variant in the set)">
+##FORMAT=<ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+##FORMAT=<ID=SB,Number=4,Type=Integer,Description="Per-sample component statistics which comprise the Fisher's Exact Test to detect strand bias.">
+##GATKCommandLine=<ID=GenotypeGVCFs,CommandLine="GenotypeGVCFs --output raw_genotyped.vcf --variant raw.vcf --reference Homo_sapiens.GRCh38.dna.primary_assembly.fa --include-non-variant-sites false --merge-input-intervals false --input-is-somatic false --tumor-lod-to-emit 3.5 --allele-fraction-error 0.001 --keep-combined-raw-annotations false --use-posteriors-to-calculate-qual false --dont-use-dragstr-priors false --use-new-qual-calculator true --annotate-with-num-discovered-alleles false --heterozygosity 0.001 --indel-heterozygosity 1.25E-4 --heterozygosity-stdev 0.01 --standard-min-confidence-threshold-for-calling 30.0 --max-alternate-alleles 6 --max-genotype-count 1024 --sample-ploidy 2 --num-reference-samples-if-no-call 0 --genotype-assignment-method USE_PLS_TO_ASSIGN --genomicsdb-max-alternate-alleles 50 --call-genotypes false --genomicsdb-use-bcf-codec false --genomicsdb-shared-posixfs-optimizations false --genomicsdb-use-gcs-hdfs-connector false --only-output-calls-starting-in-intervals false --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --max-variants-per-shard 0 --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false --disable-tool-default-annotations false --enable-all-annotations false --allow-old-rms-mapping-quality-annotation-data false",Version="4.3.0.0",Date="October 27, 2025 at 9:28:29 PM EEST">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
+##INFO=<ID=BaseQRankSum,Number=1,Type=Float,Description="Z-score from Wilcoxon rank sum test of Alt Vs. Ref base qualities">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth; some reads may have been filtered">
+##INFO=<ID=END,Number=1,Type=Integer,Description="Stop position of the interval">
+##INFO=<ID=ExcessHet,Number=1,Type=Float,Description="Phred-scaled p-value for exact test of excess heterozygosity">
+##INFO=<ID=FS,Number=1,Type=Float,Description="Phred-scaled p-value using Fisher's exact test to detect strand bias">
+##INFO=<ID=InbreedingCoeff,Number=1,Type=Float,Description="Inbreeding coefficient as estimated from the genotype likelihoods per-sample when compared against the Hardy-Weinberg expectation">
+##INFO=<ID=MLEAC,Number=A,Type=Integer,Description="Maximum likelihood expectation (MLE) for the allele counts (not necessarily the same as the AC), for each ALT allele, in the same order as listed">
+##INFO=<ID=MLEAF,Number=A,Type=Float,Description="Maximum likelihood expectation (MLE) for the allele frequency (not necessarily the same as the AF), for each ALT allele, in the same order as listed">
+##INFO=<ID=MQ,Number=1,Type=Float,Description="RMS Mapping Quality">
+##INFO=<ID=MQRankSum,Number=1,Type=Float,Description="Z-score From Wilcoxon rank sum test of Alt vs. Ref read mapping qualities">
+##INFO=<ID=QD,Number=1,Type=Float,Description="Variant Confidence/Quality by Depth">
+##INFO=<ID=RAW_MQandDP,Number=2,Type=Integer,Description="Raw data (sum of squared MQ and total depth) for improved RMS Mapping Quality calculation. Incompatible with deprecated RAW_MQ formulation.">
+##INFO=<ID=ReadPosRankSum,Number=1,Type=Float,Description="Z-score from Wilcoxon rank sum test of Alt vs. Ref read position bias">
+##INFO=<ID=SOR,Number=1,Type=Float,Description="Symmetric Odds Ratio of 2x2 contingency table to detect strand bias">
+##contig=<ID=1,length=248956422,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=10,length=133797422,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=11,length=135086622,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=12,length=133275309,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=13,length=114364328,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=14,length=107043718,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=15,length=101991189,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=16,length=90338345,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=17,length=83257441,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=18,length=80373285,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=19,length=58617616,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=2,length=242193529,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=20,length=64444167,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=21,length=46709983,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=22,length=50818468,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=3,length=198295559,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=4,length=190214555,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=5,length=181538259,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=6,length=170805979,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=7,length=159345973,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=8,length=145138636,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=9,length=138394717,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=MT,length=16569,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=X,length=156040895,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=Y,length=57227415,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270728.1,length=1872759,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270727.1,length=448248,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270442.1,length=392061,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270729.1,length=280839,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000225.1,length=211173,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270743.1,length=210658,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000008.2,length=209709,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000009.2,length=201709,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270747.1,length=198735,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270722.1,length=194050,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000194.1,length=191469,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270742.1,length=186739,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000205.2,length=185591,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000195.1,length=182896,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270736.1,length=181920,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270733.1,length=179772,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000224.1,length=179693,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000219.1,length=179198,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270719.1,length=176845,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000216.2,length=176608,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270712.1,length=176043,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270706.1,length=175055,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270725.1,length=172810,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270744.1,length=168472,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270734.1,length=165050,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000213.1,length=164239,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000220.1,length=161802,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270715.1,length=161471,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000218.1,length=161147,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270749.1,length=158759,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270741.1,length=157432,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000221.1,length=155397,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270716.1,length=153799,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270731.1,length=150754,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270751.1,length=150742,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270750.1,length=148850,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270519.1,length=138126,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000214.1,length=137718,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270708.1,length=127682,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270730.1,length=112551,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270438.1,length=112505,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270737.1,length=103838,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270721.1,length=100316,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270738.1,length=99375,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270748.1,length=93321,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270435.1,length=92983,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000208.1,length=92689,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270538.1,length=91309,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270756.1,length=79590,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270739.1,length=73985,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270757.1,length=71251,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270709.1,length=66860,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270746.1,length=66486,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270753.1,length=62944,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270589.1,length=44474,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270726.1,length=43739,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270735.1,length=42811,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270711.1,length=42210,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270745.1,length=41891,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270714.1,length=41717,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270732.1,length=41543,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270713.1,length=40745,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270754.1,length=40191,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270710.1,length=40176,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270717.1,length=40062,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270724.1,length=39555,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270720.1,length=39050,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270723.1,length=38115,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270718.1,length=38054,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270317.1,length=37690,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270740.1,length=37240,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270755.1,length=36723,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270707.1,length=32032,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270579.1,length=31033,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270752.1,length=27745,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270512.1,length=22689,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270322.1,length=21476,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=GL000226.1,length=15008,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270311.1,length=12399,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270366.1,length=8320,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270511.1,length=8127,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270448.1,length=7992,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270521.1,length=7642,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270581.1,length=7046,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270582.1,length=6504,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270515.1,length=6361,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270588.1,length=6158,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270591.1,length=5796,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270522.1,length=5674,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270507.1,length=5353,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270590.1,length=4685,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270584.1,length=4513,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270320.1,length=4416,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270382.1,length=4215,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270468.1,length=4055,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270467.1,length=3920,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270362.1,length=3530,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270517.1,length=3253,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270593.1,length=3041,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270528.1,length=2983,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270587.1,length=2969,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270364.1,length=2855,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270371.1,length=2805,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270333.1,length=2699,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270374.1,length=2656,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270411.1,length=2646,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270414.1,length=2489,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270510.1,length=2415,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270390.1,length=2387,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270375.1,length=2378,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270420.1,length=2321,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270509.1,length=2318,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270315.1,length=2276,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270302.1,length=2274,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270518.1,length=2186,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270530.1,length=2168,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270304.1,length=2165,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270418.1,length=2145,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270424.1,length=2140,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270417.1,length=2043,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270508.1,length=1951,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270303.1,length=1942,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270381.1,length=1930,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270529.1,length=1899,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270425.1,length=1884,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270396.1,length=1880,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270363.1,length=1803,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270386.1,length=1788,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270465.1,length=1774,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270383.1,length=1750,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270384.1,length=1658,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270330.1,length=1652,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270372.1,length=1650,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270548.1,length=1599,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270580.1,length=1553,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270387.1,length=1537,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270391.1,length=1484,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270305.1,length=1472,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270373.1,length=1451,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270422.1,length=1445,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270316.1,length=1444,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270340.1,length=1428,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270338.1,length=1428,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270583.1,length=1400,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270334.1,length=1368,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270429.1,length=1361,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270393.1,length=1308,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270516.1,length=1300,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270389.1,length=1298,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270466.1,length=1233,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270388.1,length=1216,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270544.1,length=1202,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270310.1,length=1201,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270412.1,length=1179,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270395.1,length=1143,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270376.1,length=1136,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270337.1,length=1121,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270335.1,length=1048,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270378.1,length=1048,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270379.1,length=1045,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270329.1,length=1040,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270419.1,length=1029,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270336.1,length=1026,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270312.1,length=998,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270539.1,length=993,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270385.1,length=990,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270423.1,length=981,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270392.1,length=971,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##contig=<ID=KI270394.1,length=970,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
+##reference=file:///home/mohamed/Desktop/project/Homo_sapiens.GRCh38.dna.primary_assembly.fa
+##source=GenotypeGVCFs
+##bcftools_normVersion=1.21+htslib-1.21
+##bcftools_normCommand=norm -m -both -Oz -o merged.norm.vcf.gz merged.vcf; Date=Sun Apr 26 19:39:53 2026
+##VEP="v115.2" API="v115" time="2026-04-26 19:41:25" cache="/home/mohamed/.vep/homo_sapiens/115_GRCh38" ensembl=115.266b84d ensembl-compara=115.ae48a7a ensembl-funcgen=115.57f7061 ensembl-io=115.25061d3 ensembl-variation=115.b7c2637 1000genomes="phase3" COSMIC="101" ClinVar="202502" HGMD-PUBLIC="20204" assembly="GRCh38.p14" dbSNP="156" gencode="GENCODE 49" genebuild="GENCODE49" gnomADe="v4.1" gnomADg="v4.1" polyphen="2.2.3" regbuild="1.0" sift="6.2.1"
+##INFO=<ID=CSQ,Number=.,Type=String,Description="Consequence annotations from Ensembl VEP. Format: Allele|Consequence|IMPACT|SYMBOL|Gene|Feature_type|Feature|BIOTYPE|EXON|INTRON|HGVSc|HGVSp|cDNA_position|CDS_position|Protein_position|Amino_acids|Codons|Existing_variation|DISTANCE|STRAND|FLAGS|VARIANT_CLASS|SYMBOL_SOURCE|HGNC_ID|CANONICAL|MANE|MANE_SELECT|MANE_PLUS_CLINICAL|TSL|APPRIS|CCDS|ENSP|SWISSPROT|TREMBL|UNIPARC|UNIPROT_ISOFORM|GENE_PHENO|SIFT|PolyPhen|DOMAINS|miRNA|AF|AFR_AF|AMR_AF|EAS_AF|EUR_AF|SAS_AF|gnomADe_AF|gnomADe_AFR_AF|gnomADe_AMR_AF|gnomADe_ASJ_AF|gnomADe_EAS_AF|gnomADe_FIN_AF|gnomADe_MID_AF|gnomADe_NFE_AF|gnomADe_REMAINING_AF|gnomADe_SAS_AF|gnomADg_AF|gnomADg_AFR_AF|gnomADg_AMI_AF|gnomADg_AMR_AF|gnomADg_ASJ_AF|gnomADg_EAS_AF|gnomADg_FIN_AF|gnomADg_MID_AF|gnomADg_NFE_AF|gnomADg_REMAINING_AF|gnomADg_SAS_AF|MAX_AF|MAX_AF_POPS|CLIN_SIG|SOMATIC|PHENO|PUBMED|MOTIF_NAME|MOTIF_POS|HIGH_INF_POS|MOTIF_SCORE_CHANGE|TRANSCRIPTION_FACTORS">
+##VEP-command-line='vep --assembly GRCh38 --cache --database 0 --dir_cache [PATH]/.vep --everything --fork 4 --input_file merged.norm.vcf.gz --offline --output_file vep.vcf --vcf'
+##INFO=<ID=CLNSIG,Number=.,Type=String,Description="Aggregate germline classification for this single variant; multiple values are separated by a vertical bar">
+##INFO=<ID=CLNREVSTAT,Number=.,Type=String,Description="ClinVar review status of germline classification for the Variation ID">
+##INFO=<ID=CLNDN,Number=.,Type=String,Description="ClinVar's preferred disease name for the concept specified by disease identifiers in CLNDISDB">
+##bcftools_annotateVersion=1.21+htslib-1.21
+##bcftools_annotateCommand=annotate -a /home/mohamed/.vep/databases/clinvar/clinvar.vcf.gz -c ID,INFO/CLNSIG,INFO/CLNREVSTAT,INFO/CLNDN -Oz -o vep_clinvar.vcf.gz vep.vcf.gz; Date=Sun Apr 26 20:25:12 2026
+##bcftools_viewVersion=1.21+htslib-1.21
+##bcftools_viewCommand=view -i 'INFO/CSQ ~ "HIGH|MODERATE"' vep_clinvar.vcf.gz; Date=Sun Apr 26 20:38:05 2026
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SRR22164370
